@@ -5,19 +5,19 @@ describe('User CRUD', () => {
     cy.visit('http://localhost:3000');
   });
 
-  it('Deve listar todos os usuários', () => {
+  it('Validar que a mensagem "No users yet." é exibido quando não existir nenhum usuário no banco de dados', () => {
+    cy.visit('http://localhost:3000');
+    cy.get('.RaEmpty-message > .MuiTypography-paragraph');
+    cy.contains('No User yet.');
+  });
+
+  it('Validar se um usuário está sendo listado', () => {
     cy.task('db:create', {
       name: "Angela",
       email: "angela_santos@gmail.com",
       password: "123456"
     });
     cy.contains("Angela");
-  });
-
-  it('Validar que a mensagem "No users yet." é exibido quando não existir nenhum usuário no banco de dados', () => {
-    cy.visit('http://localhost:3000');
-    cy.get('.RaEmpty-message > .MuiTypography-paragraph');
-    cy.contains('No User yet.');
   });
 
   it('Deve criar um novo usuário usando o botão SAVE', () => {

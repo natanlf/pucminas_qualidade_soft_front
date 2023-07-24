@@ -6,7 +6,7 @@ export const UserList = (data) => (
             <TextField source="id" />
             <TextField source="name" />
             <TextField source="email" />
-            <TextField source="password" />
+            <TextField source="password" type="password" />
         </Datagrid>
     </List>
 );
@@ -16,7 +16,7 @@ export const UserEdit = () => (
         <SimpleForm>
             <TextInput source="name" />
             <TextInput source="email" />
-            <TextInput source="password" />
+            <TextInput source="password" type="password" />
         </SimpleForm>
     </Edit>
 );
@@ -26,7 +26,7 @@ export const UserCreate = () => (
         <SimpleForm>
             <TextInput source="name" />
             <TextInput source="email" />
-            <TextInput source="password" />
+            <TextInput source="password" type="password" />
         </SimpleForm>
     </Create>
 );
