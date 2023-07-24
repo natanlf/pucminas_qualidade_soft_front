@@ -41,29 +41,6 @@ describe('User CRUD', () => {
     cy.contains('James');
   });
 
-  it('Deve remover um usuário', () => {
-    cy.task('db:create', {
-      name: "Angela",
-      email: "angela_santos@gmail.com",
-      password: "123456"
-    });
-    cy.get('.MuiTableBody-root > :nth-child(1)').click();
-    cy.get('.ra-delete-button').click();
-    cy.contains('Element deleted');
-  });
-
-  it('Deve remover um usuário e cancelar a remoção', () => {
-    cy.task('db:create', {
-      name: "Angela",
-      email: "angela_santos@gmail.com",
-      password: "123456"
-    });
-    cy.get('.MuiTableBody-root > :nth-child(1)').click();
-    cy.get('.ra-delete-button').click();
-    cy.get('.RaNotification-undo').click();
-    cy.contains("Angela");
-  });
-
   it('Deve atualizar um usuário', () => {
     cy.task('db:create', {
       name: "Angela",
@@ -93,5 +70,28 @@ describe('User CRUD', () => {
     cy.contains('Element updated');
     cy.get('.RaNotification-undo').click();
     cy.contains('Angela');
+  });
+
+  it('Deve remover um usuário', () => {
+    cy.task('db:create', {
+      name: "Angela",
+      email: "angela_santos@gmail.com",
+      password: "123456"
+    });
+    cy.get('.MuiTableBody-root > :nth-child(1)').click();
+    cy.get('.ra-delete-button').click();
+    cy.contains('Element deleted');
+  });
+
+  it('Deve remover um usuário e cancelar a remoção', () => {
+    cy.task('db:create', {
+      name: "Angela",
+      email: "angela_santos@gmail.com",
+      password: "123456"
+    });
+    cy.get('.MuiTableBody-root > :nth-child(1)').click();
+    cy.get('.ra-delete-button').click();
+    cy.get('.RaNotification-undo').click();
+    cy.contains("Angela");
   });
 });
