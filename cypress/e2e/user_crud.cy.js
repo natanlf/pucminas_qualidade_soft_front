@@ -14,7 +14,7 @@ describe('User CRUD', () => {
     cy.contains("Angela");
   });
 
-  it('Deve validar que nenhum usuário está sendo listado', () => {
+  it('Validar que a mensagem "No users yet." é exibido quando não existir nenhum usuário no banco de dados', () => {
     cy.visit('http://localhost:3000');
     cy.get('.RaEmpty-message > .MuiTypography-paragraph');
     cy.contains('No User yet.');
